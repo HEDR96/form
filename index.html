@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Informasi Saya</h1>
+    <form action="" method="post" autocomplete="off">
+      <div>
+        <label for="nama">Masukkan Nama:</label>
+        <input
+          type="text"
+          name="nama"
+          id="nama"
+          autofocus
+          required
+          oninvalid="this.setCustomValidity('diisi ya cui')"
+          oninput="this.setCustomValidity('')"
+        />
+      </div>
+      <div>
+        <label for="email">Masukkan Email: </label>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div>
+        <label for="nohp">Nomor Telepon:</label>
+        <input
+          type="tel"
+          name="nohp"
+          id="nohp"
+          pattern="(\+62|62|0)8[1-9][0-9]{7,10}$"
+        />
+      </div>
+      <div>
+        <label for="website">Masukkan Url Website:</label>
+        <input type="url" name="website" id="website" />
+      </div>
+      <div>
+        <label for="angka">Masukkan Usia:</label>
+        <input type="number" name="angka" id="angka" max="61" />
+      </div>
+      <div>
+        <label for="slider">Masukkan Usia:</label>
+        <span class="awal"></span>
+        <input type="range" name="slider" id="slider" min="15" max="61" />
+        <span class="akhir"></span>
+      </div>
+      <div>
+        <label for="tanggal">Masukkan bulan lahir:</label>
+        <input type="month" name="tanggal" id="tanggal" />
+      </div>
+      <div>
+        <label for="warna">Masukkan Warna kesukaan:</label>
+        <input type="color" name="warna" id="warna" />
+      </div>
+      <div>
+        <label for="file">Masukkan File anda:</label>
+        <input type="file" name="file" id="file" />
+      </div>
+      <div>
+        <button type="submit">Kirim</button>
+      </div>
+    </form>
+    <script>
+      const slider = document.querySelector("#slider");
+      const awal = document.querySelector(".awal");
+      const akhir = document.querySelector(".akhir");
+      awal.innerHTML = slider.min;
+      akhir.innerHTML = slider.value;
+      slider.addEventListener("input", function () {
+        akhir.innerHTML = slider.value;
+      });
+    </script>
+  </body>
+</html>
